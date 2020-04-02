@@ -1,5 +1,4 @@
 # Kids at Home
----
 
 This app is a free online community to share activity ideas for kids who have to stay at home.
 
