@@ -19,12 +19,29 @@ con.connect(function(err) {
   console.log("Connected!");
 
   let sql =
-    "DROP TABLE if exists students; CREATE TABLE students(id INT NOT NULL AUTO_INCREMENT, firstname VARCHAR(40) not null, lastname VARCHAR(40) not null, PRIMARY KEY (id));";
+    "DROP TABLE if exists resources; create table resources(id int auto_increment primary key, name text null, description varchar(255) null, thumbnail text null, indoor tinyint(1) null, age float null, category_id int null, type_id int null, constraint resources_category_id_fk foreign key (category_id) references category (id), constraint resources_type_id_fk foreign key (type_id) references type (id)));";
+
   con.query(sql, function(err, result) {
     if (err) throw err;
-    console.log("Table creation `students` was successful!");
+    console.log("Table creation `resources` was successful!");
 
-    console.log("Closing...");
+  });
+
+  let sql =
+    "DROP TABLE if exists category; create table category(id int auto_increment primary key, name text null, description varchar(255) null, thumbnail text null));";
+  con.query(sql, function(err, result) {
+    if (err) throw err;
+    console.log("Table creation `category` was successful!");
+
+  });
+
+  let sql =
+    "DROP TABLE if exists type; create table type(id int auto_increment primary key, name text null););";
+
+  con.query(sql, function(err, result) {
+    if (err) throw err;
+    console.log("Table creation `type` was successful!");
+
   });
 
   con.end();
