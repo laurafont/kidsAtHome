@@ -23,8 +23,8 @@ router.get("/:id", function(req, res, next) {
 });
 
 // GET one resource by category
-router.get("/:category_id", function(req, res, next) {
-  db(`SELECT * FROM resources WHERE id=${req.params.category_id};`)
+router.get("/category/:id", function(req, res, next) {
+  db(`SELECT * FROM resources WHERE category_id=${req.params.id};`)
     .then(results => {
       res.send(results.data);
     })
@@ -32,8 +32,8 @@ router.get("/:category_id", function(req, res, next) {
 });
 
 // GET one resource by type
-router.get("/:type_id", function(req, res, next) {
-  db(`SELECT * FROM resources WHERE id=${req.params.type_id};`)
+router.get("/type/:id", function(req, res, next) {
+  db(`SELECT * FROM resources WHERE type_id=${req.params.id};`)
     .then(results => {
       res.send(results.data);
     })
