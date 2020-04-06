@@ -1,4 +1,27 @@
-/* .App {
+.App {
   text-align: center;
 }
- */
+
+
+ nav {
+   padding: 1em;
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+   min-height: 15vh;
+   background-color: teal;
+   color: white;
+ }
+
+ .nav-links{
+   width: 100%;
+   display: flex;
+   justify-content: space-around;
+   align-items: flex-start;
+   list-style: none;
+   padding-top: 10px;
+ }
+
+ label, legend {
+   text-align: right;
+ }
