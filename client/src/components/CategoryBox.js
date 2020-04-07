@@ -16,23 +16,19 @@ export default class CategoryBox extends Component {
 
     componentDidMount() {
         this.getCategory();
+        this.getResources();
       }
     
-      getCategory = (props) => {
-        console.log(props);
-        fetch(`category/${props.match.params.id}`)
+      getCategory = () => {
+        fetch(`/category/${this.props.match.params.id}`)
           .then(response => response.json())
           .then(response => {
             this.setState({ category: response });
           });
       };
-
-      componentDidMount() {
-        this.getResources();
-      }
-    
+  
       getResources = () => {
-        fetch("/resources")
+        fetch(`/category/${this.props.match.params.id}/resources`)
           .then(response => response.json())
           .then(response => {
             this.setState({ resources: response });
@@ -42,19 +38,27 @@ export default class CategoryBox extends Component {
 
     render() {
         return (
-            <div>
-                <h1>{this.state.category.name}</h1>
+            <div className="container mt-4">
                 <div>
-                {this.state.resources.filter(re => re.category_id === this.state.category.id).map(resource => (
-                      <div key={this.state.resources.id}>
-                        <Link to={`/resources/${this.state.resources.id}`}>
-                            <img src={resource.thumbnail} /></Link>
-                        <div>{resource.name}</div>
-                        <div>{resource.description}</div>
-                        <div>{resource.indoor}</div>
-                        <div>{resource.age_id}</div>
+                {this.state.category.map((category, index) => {
+                    return (
+                      <div key={index}>
+                        <h3>{category.name}</h3> 
                       </div>
-                  ))}
+                    );
+                    })}
+                </div>
+                <hr/>
+                <div className="row">
+                {this.state.resources.map((resource, index) => {
+                      return (
+                      <div key={index} className="col-md-3 mb-4 text-center">
+                        <Link to={`/resources/${resource.id}`}>
+                            <img width="200px" src={resource.thumbnail} /></Link>
+                        <div className="font-weight-bold mt-2">{resource.name}</div>
+                      </div>
+                      );
+                      })}
                 </div>
             </div>
         )

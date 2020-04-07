@@ -26,7 +26,7 @@ export default function App() {
           <Route path="/agePage" component={AgePage} />
           <Route path="/resource" component={ResourcePage} />
           <Route path="/addResource" component={InputPage} />
-          <Route path="/categories/:id" component={CategoryBox} />
+          <Route path="/categories/:id" exact component={CategoryBox} />
           <Route path="/" exact component={Landing} />
         </Switch>
         <div className="footer"></div>
@@ -38,10 +38,12 @@ export default function App() {
 const Landing = () => (
   <div>
     <div className="container">
-      <img src="client\src\img\art_supplies.jpeg" />
+      <img width="100%" height="500px" src="https://images.pexels.com/photos/743986/pexels-photo-743986.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"  alt="art supplies"/>
     </div>
-    <div className="container">
-      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+    <div className="container mt-3">
+     <div className="container px-5">
+      <p className="font-italic text-center">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+    </div>
     </div>
     <CategoryPage />
   </div>

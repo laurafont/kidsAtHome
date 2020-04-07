@@ -42,7 +42,7 @@ router.get("/resources/:id", function(req, res, next) {
 
 
 // GET one resource by category
-router.get("/category/:id", function(req, res, next) {
+router.get("/category/:id/resources", function(req, res, next) {
   db(`SELECT * FROM resources WHERE category_id=${req.params.id};`)
     .then(results => {
       res.send(results.data);

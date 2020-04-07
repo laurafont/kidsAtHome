@@ -1,6 +1,6 @@
-.App {
+  .App {
   text-align: center;
-}
+  }
 
 
  nav {
@@ -14,12 +14,12 @@
  }
 
  .nav-links{
-   width: 100%;
+   width: 80%;
    display: flex;
    justify-content: space-around;
    align-items: flex-start;
    list-style: none;
-   padding-top: 10px;
+   padding-top: 40px;
  }
 
  label, legend {
@@ -34,4 +34,8 @@
   background-color: teal;
   color: white;
   margin-top: 5em;
-}
+  }
+
+  .link {
+    color: black;
+  }

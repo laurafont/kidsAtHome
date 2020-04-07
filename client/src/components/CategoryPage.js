@@ -24,21 +24,17 @@ export default class CategoryPage extends Component {
     
     render() {
         return (
-            <div>
-                <table>
-                <tbody>
+            <div className="container mt-5">
                   {this.state.categories.map((category, index) => {
                     return (
-                      <tr key={index}>
-                        <Link to={`/categories/${index + 1}`}>
-                            <img src={category.thumbnail} /></Link>
-                        <th>{category.name}</th>
-                        <th>{category.description}</th> 
-                      </tr>
+                      <div className="row" key={index}>  
+                        <div className="col-4 text-right"><h3><Link className="link" to={`/categories/${index + 1}`}>{category.name}</Link></h3></div>
+                        <div className="col-2 text-center"> <Link to={`/categories/${index + 1}`}>
+                            <img width="50px" src={category.thumbnail} /></Link></div>
+                        <div className="col-6">{category.description}</div> 
+                      </div>
                     );
                     })}
-                </tbody>
-              </table>
             </div>
         )
     }

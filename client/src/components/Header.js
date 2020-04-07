@@ -9,27 +9,29 @@ function Header() {
         return (
             <nav>
                 <div className="row">
-                    <div className="col">
-                        <h1>Kids At Home</h1>
-                        <ul className="nav-links">
-                            <Link style={style} to="/Crafts">
+                    <div className="col-3 mt-3">
+                        <Link style={style}to="/"><h1>Kids at Home</h1></Link>
+                    </div>
+                    <div className="col-6">
+                    <ul className="nav-links">
+                            <Link style={style} to="/categories/1">
                                 <li>Crafts</li>
                             </Link>
-                            <Link style={style} to="/Pyschomotricity">
+                            <Link style={style} to="/categories/2">
                                 <li>Pyschomotricity</li>
                             </Link>  
-                            <Link style={style} to="/Educational">
+                            <Link style={style} to="/categories/3">
                                 <li>Educational Resources</li>
                             </Link>
-                            <Link style={style} to="/Music">
+                            <Link style={style} to="/categories/4">
                                 <li>Music</li>
                             </Link>
-                            <Link style={style} to="/Recipes">
+                            <Link style={style} to="/categories/5">
                                 <li>Recipes</li>
                             </Link>
                         </ul>
-                    </div>
-                    <div className="col">
+                        </div>
+                    <div className="col-3 mt-4">
                         <Link to="/addResource"><button className="btn btn-info">Share an idea!</button></Link>
                     </div>
                 </div>
