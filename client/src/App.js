@@ -7,6 +7,7 @@ import Header from './components/Header';
 import AgePage from './components/AgePage';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Carousel from 'react-bootstrap/Carousel';
 
 import {
   BrowserRouter as Router,
@@ -38,13 +39,35 @@ export default function App() {
 
 const Landing = () => (
   <div>
-    <div className="container">
-      <img width="100%" height="500px" src="https://images.pexels.com/photos/743986/pexels-photo-743986.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"  alt="art supplies"/>
+    <div className="slider-container mx-auto">
+    <Carousel>
+      <Carousel.Item>
+        <img
+        className="d-block w-100"
+        src="https://images.pexels.com/photos/2170/creative-desk-pens-school.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+        alt="First slide"
+        />
+      </Carousel.Item>
+      <Carousel.Item>
+        <img
+        className="d-block w-100"
+         src="https://images.pexels.com/photos/3855552/pexels-photo-3855552.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+         alt="Third slide"
+        />
+      </Carousel.Item>
+      <Carousel.Item>
+        <img
+        className="d-block w-100"
+        src="https://images.pexels.com/photos/3662668/pexels-photo-3662668.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+        alt="Third slide"
+        />
+      </Carousel.Item>
+    </Carousel>
     </div>
     <div className="container mt-3">
-     <div className="container px-5">
-      <p className="font-italic text-center font-weight-light">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-    </div>
+      <div className="container px-5">
+        <p className="font-italic text-center font-weight-light">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+      </div>
     </div>
     <CategoryPage />
   </div>

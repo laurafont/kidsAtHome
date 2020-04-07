@@ -11,6 +11,7 @@
    min-height: 15vh;
    background-color: teal;
    color: white;
+   
  }
 
  .nav-links{
@@ -58,3 +59,8 @@
   .display-4 {
     text-shadow: 2px 2px 4px white;
   }
+
+  .slider-container {
+    width: 60%;
+    height: 60%;
+}
