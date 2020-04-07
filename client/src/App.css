@@ -36,6 +36,25 @@
   margin-top: 5em;
   }
 
+  .homeLinks {
+    color: white;
+  }
+
+  .homeLinks:hover {
+    color: white;
+  }
+
   .link {
     color: black;
+    text-shadow: 2px 2px 5px rgb(161, 161, 161);
+  }
+
+  .link:hover {
+    color: black;
+    text-shadow: 2px 2px 5px rgb(161, 161, 161);
+  }
+
+
+  .display-4 {
+    text-shadow: 2px 2px 4px white;
   }

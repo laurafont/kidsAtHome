@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Modal from 'react-bootstrap/Modal';
+
 
 
 export default class InputPage extends Component {
@@ -12,7 +14,9 @@ export default class InputPage extends Component {
             age_id: null,
             indoor: 1,
             thumbnail: "",
-            file: ""
+            file: "",
+            show: false,
+            setShow: false
         };
     }
 
@@ -60,9 +64,23 @@ export default class InputPage extends Component {
           .catch(error => {
             console.log(error);
           });
+          this.handleShow();
       }
+    handleClose = () => {
+        this.setState({
+            setShow: false
+        })
+    }
 
+    handleShow = () => {
+        this.setState({
+            setShow: true
+          });
+    }
+      
     render() {
+       
+
         return (
             <div className="App">
                 <div className="container mt-5">
@@ -71,10 +89,11 @@ export default class InputPage extends Component {
                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
                     <hr/>
                     <br/>
+                    <div className="container mx-5">
                     <form>
                         <div className="form-group row">
                             <label className="col-sm-2 col-form-label">Title</label>
-                            <div className="col-sm-10">
+                            <div className="col-sm-8">
                                 <input className="form-control"
                                 type="text"
                                 placeholder="Resource title"
@@ -84,7 +103,7 @@ export default class InputPage extends Component {
                         </div>
                         <div className="form-group row">
                             <label className="col-sm-2 col-form-label">Description</label>
-                            <div className="col-sm-10">
+                            <div className="col-sm-8">
                                 <textarea className="form-control"
                                 placeholder="Short description"
                                 name="description"
@@ -93,7 +112,7 @@ export default class InputPage extends Component {
                         </div>
                         <div className="form-group row">
                             <label className="col-sm-2 col-form-label">Category</label>
-                            <div className="col-sm-10">
+                            <div className="col-sm-8">
                             <select className="custom-select mr-sm-2"
                             name="category_id"
                             onChange={e => this.handleInput(e)}>
@@ -108,7 +127,7 @@ export default class InputPage extends Component {
                         </div>
                         <div className="form-group row">
                             <label className="col-sm-2 col-form-label">Age</label>
-                            <div className="col-sm-10">
+                            <div className="col-sm-8">
                             <select className="custom-select mr-sm-2"
                             name="age_id" 
                             onChange={e => this.handleInput(e)}>
@@ -135,30 +154,42 @@ export default class InputPage extends Component {
                             </div>
                         </div>
                         <div className="form-group row">
-                            <label className="col-sm-2 col-form-label">Thumbnail</label>
-                            <div className="col-sm-10">
-                                <input type="file" className="custom-file-input"
+                            <label className="col-sm-2 col-form-label">Image</label>
+                            <div className="col-sm-8">
+                                <input className="form-control"
+                                type="text"
+                                placeholder="Insert URL"
                                 name="thumbnail"
                                 onChange={e => this.handleInput(e)}/>
-                                <label className="custom-file-label">Choose image</label>
                             </div>
                         </div>
                         <div className="form-group row">
                             <label className="col-sm-2 col-form-label">File Upload</label>
-                            <div className="col-sm-10">
+                            <div className="col-sm-5 ml-3">
                                 <input type="file" className="custom-file-input"
                                 name="file"
                                 onChange={e => this.handleInput(e)}/>
-                                <label className="custom-file-label">Choose file</label>
+                                <label className="custom-file-label text-left">Choose file</label>
                             </div>
                         </div>
                     </form>
+                    </div>
                     <br/>
                     <hr/>
                     <div className="d-flex justify-content-end">
                         <button className="btn btn-info" onClick={e => this.addResource()}>Add your idea</button>
                     </div>
                 </div>
+
+                <Modal show={this.state.setShow} onHide={this.handleClose}>
+                    <Modal.Header closeButton>
+                        <Modal.Title>Congratulations</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>Your idea has been added to the database!</Modal.Body>
+                    <Modal.Footer>
+                    <button variant="secondary" onClick={this.handleClose}>Close</button>
+                    </Modal.Footer>
+                </Modal>
             </div>
         )
     }

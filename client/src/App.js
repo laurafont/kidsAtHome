@@ -7,6 +7,7 @@ import Header from './components/Header';
 import AgePage from './components/AgePage';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -42,7 +43,7 @@ const Landing = () => (
     </div>
     <div className="container mt-3">
      <div className="container px-5">
-      <p className="font-italic text-center">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+      <p className="font-italic text-center font-weight-light">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
     </div>
     </div>
     <CategoryPage />

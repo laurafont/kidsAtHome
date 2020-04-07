@@ -31,7 +31,7 @@ export default class CategoryPage extends Component {
                         <div className="col-4 text-right"><h3><Link className="link" to={`/categories/${index + 1}`}>{category.name}</Link></h3></div>
                         <div className="col-2 text-center"> <Link to={`/categories/${index + 1}`}>
                             <img width="50px" src={category.thumbnail} /></Link></div>
-                        <div className="col-6">{category.description}</div> 
+                        <div className="col-6 font-weight-light">{category.description}</div> 
                       </div>
                     );
                     })}

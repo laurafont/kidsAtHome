@@ -35,6 +35,7 @@ export default class ResourcePage extends Component {
             console.log(this.state.resource[0].category_id);
           });
       };
+      
     
       render() {
         return (
@@ -54,7 +55,7 @@ export default class ResourcePage extends Component {
                         return (
                             <div key={index} className="card">
                                 <div className="card-body">
-                                    <h5 className="card-title">{resource.name}</h5>
+                                    <h3 className="card-title">{resource.name}</h3>
                                     <p className="card-text font-weight-light">{resource.description}</p>
                                 </div>
                                 <ul className="list-group list-group-flush">
@@ -65,6 +66,9 @@ export default class ResourcePage extends Component {
                                     <li className="list-group-item">
                                     <span className="font-weight-light">Suitable for ages:</span> {resource.age_id}</li>
                                 </ul>
+                                <Link className="btn btn-info" to={resource.file} target="_blank" download>
+                                    <button className="btn btn-info">Download file</button>
+                                </Link>
                             </div>
                         );})}
                     </div>
