@@ -10,7 +10,7 @@ function Header() {
             <nav>
                 <div className="row">
                     <div className="col-3 mt-3">
-                        <Link style={style}to="/"><h1>Kids at Home</h1></Link>
+                        <Link style={style}to="/"><h1 className="display-4">Kids at Home</h1></Link>
                     </div>
                     <div className="col-6">
                     <ul className="nav-links">

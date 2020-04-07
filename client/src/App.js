@@ -24,7 +24,7 @@ export default function App() {
         <Switch>
           <Route path="/categories" exact component={CategoryPage} />
           <Route path="/agePage" component={AgePage} />
-          <Route path="/resource" component={ResourcePage} />
+          <Route path="/resources/:id" component={ResourcePage} />
           <Route path="/addResource" component={InputPage} />
           <Route path="/categories/:id" exact component={CategoryBox} />
           <Route path="/" exact component={Landing} />
