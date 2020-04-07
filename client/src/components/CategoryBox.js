@@ -20,7 +20,7 @@ export default class CategoryBox extends Component {
     
       getCategory = (props) => {
         console.log(props);
-        fetch(`/${props.match.params.id}`)
+        fetch(`category/${props.match.params.id}`)
           .then(response => response.json())
           .then(response => {
             this.setState({ category: response });

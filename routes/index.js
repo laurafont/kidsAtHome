@@ -11,16 +11,35 @@ function getResource(req, res) {
 }
 
 // GET resource list
-router.get("/", getResource);
+router.get("/resources", getResource);
+
+// GET categories
+router.get("/category", function(req, res, next) {
+  db("SELECT * FROM category;")
+    .then(results => {
+      res.send(results.data);
+    })
+    .catch(err => res.status(500).send(err));
+});
+
+// GET categories by id
+router.get("/category/:id", function(req, res, next) {
+  db(`SELECT * FROM category WHERE id=${req.params.id};`)
+    .then(results => {
+      res.send(results.data);
+    })
+    .catch(err => res.status(500).send(err));
+});
 
 // GET one resource by id
-router.get("/:id", function(req, res, next) {
+router.get("/resources/:id", function(req, res, next) {
   db(`SELECT * FROM resources WHERE id=${req.params.id};`)
     .then(results => {
       res.send(results.data);
     })
     .catch(err => res.status(500).send(err));
 });
+
 
 // GET one resource by category
 router.get("/category/:id", function(req, res, next) {
@@ -52,3 +71,8 @@ router.post("/", function(req, res, next) {
 });
 
 module.exports = router;
+
+
+
+  
+  

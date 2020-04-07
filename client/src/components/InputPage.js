@@ -1,6 +1,67 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+
 
 export default class InputPage extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            resources: [],
+            name: "",
+            description: "",
+            category_id: null,
+            age_id: null,
+            indoor: 1,
+            thumbnail: "",
+            file: ""
+        };
+    }
+
+    componentDidMount() {
+        this.getResources();
+      }
+    
+      getResources = () => {
+        fetch("/resources")
+          .then(response => response.json())
+          .then(response => {
+            this.setState({ resources: response });
+          });
+      };
+
+    handleInput(e) {
+        const value = e.target.value;
+        const name = e.target.name;
+    
+        this.setState({
+          [name]: value
+        });
+      }
+
+      addResource() {
+        fetch("/", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            name: this.state.name,
+            description: this.state.description,
+            category_id: this.state.category_id,
+            age_id: this.state.age_id,
+            indoor: this.state.indoor,
+            thumbnail: this.state.thumbnail,
+            file: this.state.file,
+          })
+        })
+          .then(response => response.json())
+          .then(response => {
+            this.setState({ resources: response });
+          })
+          .catch(error => {
+            console.log(error);
+          });
+      }
+
     render() {
         return (
             <div className="App">
@@ -9,6 +70,7 @@ export default class InputPage extends Component {
                     <br/>
                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
                     <hr/>
+                    <br/>
                     <form>
                         <div className="form-group row">
                             <label className="col-sm-2 col-form-label">Title</label>
@@ -33,14 +95,14 @@ export default class InputPage extends Component {
                             <label className="col-sm-2 col-form-label">Category</label>
                             <div className="col-sm-10">
                             <select className="custom-select mr-sm-2"
-                            name="category"
+                            name="category_id"
                             onChange={e => this.handleInput(e)}>
                                 <option selected>Choose category</option>
-                                <option value="crafts">Crafts</option>
-                                <option value="pyscho">Pyschomotricity</option>
-                                <option value="educational">Educational resources</option>
-                                <option value="music">Music</option>
-                                <option value="recipes">Recipes</option>
+                                <option value="1">Crafts</option>
+                                <option value="2">Pyschomotricity</option>
+                                <option value="3">Educational resources</option>
+                                <option value="4">Music</option>
+                                <option value="5">Recipes</option>
                             </select>    
                             </div>
                         </div>
@@ -48,14 +110,14 @@ export default class InputPage extends Component {
                             <label className="col-sm-2 col-form-label">Age</label>
                             <div className="col-sm-10">
                             <select className="custom-select mr-sm-2"
-                            name="age" 
+                            name="age_id" 
                             onChange={e => this.handleInput(e)}>
                                 <option selected>Select range of age</option>
-                                <option value="0-3">Ages 0 - 3</option>
-                                <option value="4-6">Ages 4 - 6</option>
-                                <option value="7-9">Ages 7 - 9</option>
-                                <option value="10-12">Ages 10 - 12</option>
-                                <option value="13+">Ages 13 +</option>
+                                <option value="1">Ages 0 - 3</option>
+                                <option value="2">Ages 4 - 6</option>
+                                <option value="3">Ages 7 - 9</option>
+                                <option value="4">Ages 10 - 12</option>
+                                <option value="5">Ages 13 +</option>
                             </select>    
                             </div>
                         </div>
@@ -64,15 +126,38 @@ export default class InputPage extends Component {
                                 <legend className="col-form-label col-sm-2 pt-0">Type of activity</legend>
                                 <div className="col-sm-1">
                                     <div className="form-check">
-                                        <input className="form-check-input" type="radio" name="indoor" value="indoor" checked />
+                                        <input className="form-check-input" type="radio" name="indoor" value="1" checked />
                                         <label className="form-check-label">Indoor</label>
-                                        <input className="form-check-input" type="radio" name="outdoor" value="outdoor" />
+                                        <input className="form-check-input" type="radio" name="outdoor" value="0" />
                                         <label className="form-check-label">Outdoor</label>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <div className="form-group row">
+                            <label className="col-sm-2 col-form-label">Thumbnail</label>
+                            <div className="col-sm-10">
+                                <input type="file" className="custom-file-input"
+                                name="thumbnail"
+                                onChange={e => this.handleInput(e)}/>
+                                <label className="custom-file-label">Choose image</label>
+                            </div>
+                        </div>
+                        <div className="form-group row">
+                            <label className="col-sm-2 col-form-label">File Upload</label>
+                            <div className="col-sm-10">
+                                <input type="file" className="custom-file-input"
+                                name="file"
+                                onChange={e => this.handleInput(e)}/>
+                                <label className="custom-file-label">Choose file</label>
+                            </div>
+                        </div>
                     </form>
+                    <br/>
+                    <hr/>
+                    <div className="d-flex justify-content-end">
+                        <button className="btn btn-info" onClick={e => this.addResource()}>Add your idea</button>
+                    </div>
                 </div>
             </div>
         )

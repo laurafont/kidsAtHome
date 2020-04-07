@@ -14,7 +14,7 @@ export default class CategoryPage extends Component {
       }
     
       getCategories = () => {
-        fetch("/")
+        fetch("/category")
           .then(response => response.json())
           .then(response => {
             this.setState({ categories: response });
@@ -27,14 +27,16 @@ export default class CategoryPage extends Component {
             <div>
                 <table>
                 <tbody>
-                  {this.state.categories.map(category => (
-                      <tr key={this.state.categories.id}>
-                        <Link to={`/categories/${this.state.categories.id}`}>
+                  {this.state.categories.map((category, index) => {
+                    return (
+                      <tr key={index}>
+                        <Link to={`/categories/${index + 1}`}>
                             <img src={category.thumbnail} /></Link>
                         <th>{category.name}</th>
                         <th>{category.description}</th> 
                       </tr>
-                  ))}
+                    );
+                    })}
                 </tbody>
               </table>
             </div>

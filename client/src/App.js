@@ -29,6 +29,7 @@ export default function App() {
           <Route path="/categories/:id" component={CategoryBox} />
           <Route path="/" exact component={Landing} />
         </Switch>
+        <div className="footer"></div>
       </div>
     </Router>
   );
