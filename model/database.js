@@ -20,7 +20,7 @@ con.connect(function(err) {
 
 
   let sql =
-    "create table age(id int auto_increment primary key, age_range text null, description varchar(255) null, thumbnail text null); create table category(id int auto_increment primary key, name text null, description varchar(255) null, thumbnail text null); create table resources(id int auto_increment primary key, name text null, description varchar(255) null, thumbnail text null, indoor tinyint(1) null, file text null, category_id int null, age_id int null, constraint resources_category_id_fk foreign key (category_id) references category (id), constraint resources_age_id_fk foreign key (age_id) references age (id));";
+    "drop table if exists resources; drop table if exists category; drop table if exists age; create table age(id int auto_increment primary key, age_range text null, description varchar(255) null, thumbnail text null); create table category(id int auto_increment primary key, name text null, description varchar(255) null, thumbnail text null); create table resources(id int auto_increment primary key, name text null, description varchar(255) null, thumbnail text null, indoor tinyint(1) null, file text null, category_id int null, age_id int null, constraint resources_category_id_fk foreign key (category_id) references category (id), constraint resources_age_id_fk foreign key (age_id) references age (id));";
 
   con.query(sql, function(err, result) {
     if (err) throw err;
