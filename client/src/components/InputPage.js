@@ -155,9 +155,11 @@ export default class InputPage extends Component {
                                 <legend className="col-form-label col-sm-2 pt-0">Type of activity</legend>
                                 <div className="col-sm-1">
                                     <div className="form-check">
-                                        <input className="form-check-input" id="indoor" type="radio" name="indoor" value="1" />
+                                        <input className="form-check-input" id="indoor" type="radio" name="indoor" value="1" 
+                                         checked={this.state.selectedOption === 'indoor'} onChange={e => this.handleOptionChange(e)}/>
                                         <label className="form-check-label" for="indoor">Indoor</label>
-                                        <input className="form-check-input" id="outdoor" type="radio" name="outdoor" value="0" />
+                                        <input className="form-check-input" id="outdoor" type="radio" name="outdoor" value="0"
+                                          checked={this.state.selectedOption === 'outdoor'} onChange={e => this.handleOptionChange(e)} />
                                         <label className="form-check-label" for="outdoor">Outdoor</label>
                                     </div>
                                 </div>
