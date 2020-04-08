@@ -31,6 +31,15 @@ router.get("/category/:id", function(req, res, next) {
     .catch(err => res.status(500).send(err));
 });
 
+// GET ages by id
+router.get("/age/:id", function(req, res, next) {
+  db(`SELECT * FROM age WHERE id=${req.params.id};`)
+    .then(results => {
+      res.send(results.data);
+    })
+    .catch(err => res.status(500).send(err));
+});
+
 // GET one resource by id
 router.get("/resources/:id", function(req, res, next) {
   db(`SELECT * FROM resources WHERE id=${req.params.id};`)
