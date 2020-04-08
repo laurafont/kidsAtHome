@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import {
     BrowserRouter as Router,
     Link,
-    useParams
   } from "react-router-dom";
 
 export default class ResourcePage extends Component {
@@ -10,13 +9,13 @@ export default class ResourcePage extends Component {
         super(props);
         this.state = {
             resource: [],
-            categoryName: null
+            categoryName: null,
+            ageName: null
         }
     }
 
     componentDidMount() {
         this.getResource();
-        this.getCategory();
       }
   
       getResource = () => {
@@ -24,16 +23,35 @@ export default class ResourcePage extends Component {
           .then(response => response.json())
           .then(response => {
             this.setState({ resource: response });
+            this.getCategory();
+            this.getAge();
+            console.log(this.state.resource[0].category_id);
           });
       };
 
       getCategory = () => {
-        fetch(`/category/2`)
+        
+        console.log(this.state.resource[0].category_id);
+        console.log(this.state.resource);
+        const cat=this.state.resource[0].category_id;
+        fetch(`/category/${cat}`)
           .then(response => response.json())
           .then(response => {
             this.setState({ categoryName: response[0].name });
-            console.log(this.state.resource[0].category_id);
+            
           });
+          
+      };
+
+      getAge = () => {
+        const age=this.state.resource[0].age_id;
+        fetch(`/age/${age}`)
+          .then(response => response.json())
+          .then(response => {
+            this.setState({ ageName: response[0].age_range });
+            
+          });
+          
       };
       
     
@@ -64,7 +82,7 @@ export default class ResourcePage extends Component {
                                     <li className="list-group-item">
                                     <span className="font-weight-light">Type of activity:</span> {resource.indoor === 1 ? "indoor" : "outdoor"}</li>
                                     <li className="list-group-item">
-                                    <span className="font-weight-light">Suitable for ages:</span> {resource.age_id}</li>
+                                    <span className="font-weight-light">Suitable for ages:</span> {this.state.ageName}</li>
                                 </ul>
                                 <Link className="btn btn-light" to={resource.file} target="_blank" download>
                                     <button className="btn btn-light">Download file</button>
