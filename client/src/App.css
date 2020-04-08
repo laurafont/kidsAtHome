@@ -9,7 +9,7 @@
    justify-content: space-around;
    align-items: center;
    min-height: 15vh;
-   background-color: teal;
+   background-color: rgb(187, 182, 172);
    color: white;
    
  }
@@ -32,7 +32,7 @@
   justify-content: space-around;
   align-items: center;
   min-height: 5vh;
-  background-color: teal;
+  background-color: rgb(187, 182, 172);
   color: white;
   margin-top: 5em;
   }
@@ -46,21 +46,29 @@
   }
 
   .link {
-    color: black;
-    text-shadow: 2px 2px 5px rgb(161, 161, 161);
+    color: rgb(78, 72, 60);
   }
 
   .link:hover {
-    color: black;
-    text-shadow: 2px 2px 5px rgb(161, 161, 161);
+    color: rgb(78, 72, 60);
+
   }
 
 
-  .display-4 {
-    text-shadow: 2px 2px 4px white;
-  }
 
   .slider-container {
     width: 60%;
     height: 60%;
+}
+
+.share {
+  color: rgb(78, 72, 60);
+}
+
+.card-title {
+  color: rgb(78, 72, 60);
+}
+
+h3 {
+  color: rgb(78, 72, 60);
 }

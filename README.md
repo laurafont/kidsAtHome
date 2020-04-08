@@ -2,6 +2,18 @@
 
 This app is a free online community to share activity ideas for kids who have to stay at home.
 
+## Setup
+
+### Dependencies
+- Run `yarn` in project directory to install `express`. `yarn start`to run servers on port 5000.
+- `cd client`and run `yarn` to install React. `yarn start`to run servers on port 3000.
+
+### Database
+- Access MySQL in your terminal by running `mysql -u root -p`.
+- Create new database called mvp_resources: `create database mvp_resources`.
+- Add a `.env` file to root folder containing the MySQL authentication information for MySQL user.
+- Run `npm run migrate` in the root folder, in a new terminal window. This will create 3 different tables in your database: `resources`, `category` and `age`.
+
 ## Database Schema
 ![alt text](/img/db_schema.png "DB schema")
 

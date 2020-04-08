@@ -177,7 +177,7 @@ export default class InputPage extends Component {
                     <br/>
                     <hr/>
                     <div className="d-flex justify-content-end">
-                        <button className="btn btn-info" onClick={e => this.addResource()}>Add your idea</button>
+                        <button className="btn btn-secondary" onClick={e => this.addResource()}>Add your idea</button>
                     </div>
                 </div>
 

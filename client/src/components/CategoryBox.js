@@ -55,7 +55,7 @@ export default class CategoryBox extends Component {
                       <div key={index} className="col-md-3 mb-4 text-center">
                         <Link to={`/resources/${resource.id}`}>
                             <img width="200px" src={resource.thumbnail} /></Link>
-                        <div className="font-weight-bold mt-2">{resource.name}</div>
+                        <div className="card-title font-weight-bold mt-2">{resource.name}</div>
                       </div>
                       );
                       })}

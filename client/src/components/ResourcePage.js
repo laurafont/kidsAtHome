@@ -66,8 +66,8 @@ export default class ResourcePage extends Component {
                                     <li className="list-group-item">
                                     <span className="font-weight-light">Suitable for ages:</span> {resource.age_id}</li>
                                 </ul>
-                                <Link className="btn btn-info" to={resource.file} target="_blank" download>
-                                    <button className="btn btn-info">Download file</button>
+                                <Link className="btn btn-light" to={resource.file} target="_blank" download>
+                                    <button className="btn btn-light">Download file</button>
                                 </Link>
                             </div>
                         );})}
