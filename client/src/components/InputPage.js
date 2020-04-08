@@ -16,7 +16,8 @@ export default class InputPage extends Component {
             thumbnail: "",
             file: "",
             show: false,
-            setShow: false
+            setShow: false,
+            selectedOption: 'indoor'
         };
     }
 
@@ -77,6 +78,15 @@ export default class InputPage extends Component {
             setShow: true
           });
     }
+
+
+    handleOptionChange = (changeEvent) => {
+        this.setState({
+        selectedOption: changeEvent.target.name
+        });
+    }
+    
+  
       
     render() {
        
@@ -145,9 +155,11 @@ export default class InputPage extends Component {
                                 <legend className="col-form-label col-sm-2 pt-0">Type of activity</legend>
                                 <div className="col-sm-1">
                                     <div className="form-check">
-                                        <input className="form-check-input" type="radio" name="indoor" value="1" checked />
+                                        <input className="form-check-input" type="radio" name="indoor" value="1"
+                                         checked={this.state.selectedOption === 'indoor'} onChange={e => this.handleOptionChange(e)} />
                                         <label className="form-check-label">Indoor</label>
-                                        <input className="form-check-input" type="radio" name="outdoor" value="0" />
+                                        <input className="form-check-input" type="radio" name="outdoor" value="0" 
+                                        checked={this.state.selectedOption === 'outdoor'} onChange={e => this.handleOptionChange(e)}/>
                                         <label className="form-check-label">Outdoor</label>
                                     </div>
                                 </div>

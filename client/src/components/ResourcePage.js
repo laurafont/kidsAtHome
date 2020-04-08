@@ -28,7 +28,10 @@ export default class ResourcePage extends Component {
       };
 
       getCategory = () => {
-        fetch(`/category/2`)
+        console.log(this.state.resource[0].category_id);
+        console.log(this.state.resource);
+        const cat=this.state.resource[0].category_id;
+        fetch(`/category/${cat}`)
           .then(response => response.json())
           .then(response => {
             this.setState({ categoryName: response[0].name });
