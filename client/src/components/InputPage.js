@@ -42,7 +42,7 @@ export default class InputPage extends Component {
       }
 
       addResource() {
-        fetch("/", {
+        fetch("/resources", {
           method: "POST",
           headers: {
             "Content-Type": "application/json"

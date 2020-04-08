@@ -65,8 +65,3 @@ export default class CategoryBox extends Component {
     }
 }
 
-function Category(props) {
-    let { id } = useParams();
-  return <h3>{id} {props.name}</h3>;
-  }
-

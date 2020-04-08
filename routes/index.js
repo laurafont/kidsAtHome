@@ -51,7 +51,7 @@ router.get("/category/:id/resources", function(req, res, next) {
 });
 
 // GET one resource by type
-router.get("/age/:id", function(req, res, next) {
+router.get("/age/:id/resources", function(req, res, next) {
   db(`SELECT * FROM resources WHERE age_id=${req.params.id};`)
     .then(results => {
       res.send(results.data);
@@ -60,7 +60,7 @@ router.get("/age/:id", function(req, res, next) {
 });
 
 // INSERT a new resource into the DB
-router.post("/", function(req, res, next) {
+router.post("/resources", function(req, res, next) {
   db(
     `INSERT INTO resources (name, description, thumbnail, indoor, file, category_id, age_id) VALUES ('${req.body.name}', '${req.body.description}', '${req.body.thumbnail}', '${req.body.indoor}', '${req.body.file}', '${req.body.category_id}', '${req.body.age_id}');`
   )

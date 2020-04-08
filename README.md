@@ -14,11 +14,11 @@ This app is a free online community to share activity ideas for kids who have to
 - Add a `.env` file to root folder containing the MySQL authentication information for MySQL user.
 - Run `npm run migrate` in the root folder, in a new terminal window. This will create 3 different tables in your database: `resources`, `category` and `age`.
 
-## Database Schema
-![alt text](/img/db_schema.png "DB schema")
-
 ## User flow diagram
 ![alt text](/img/user_flow.png "User flow diagram")
+
+## Database Schema
+![alt text](/img/db_schema.png "DB schema")
 
 ## API routes plan
 ![alt text](/img/api_routes1.png "API routes")
