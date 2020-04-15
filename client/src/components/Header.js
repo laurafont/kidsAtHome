@@ -32,7 +32,8 @@ function Header() {
                         </ul>
                         </div>
                     <div className="col-3 mt-4">
-                        <Link to="/addResource"><button className="btn btn-light"><span className="share">Share an idea!</span></button></Link>
+                        <Link to="/addResource"><button className="btn btn-light m-2 p-2"><span className="share">Share an idea!</span></button></Link>
+                        <Link to="/signup"><button className="btn btn-light m-2 p-2"><span className="share">Sign up</span></button></Link>
                     </div>
                 </div>
             </nav>

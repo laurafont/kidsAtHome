@@ -72,3 +72,9 @@
 h3 {
   color: rgb(78, 72, 60);
 }
+
+.formerrors{
+  color : red;
+  font-size: smaller;
+
+}

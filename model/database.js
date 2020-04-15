@@ -20,7 +20,11 @@ con.connect(function(err) {
 
 
   let sql =
-    "drop table if exists resources; drop table if exists category; drop table if exists age; create table age(id int auto_increment primary key, age_range text null, description varchar(255) null, thumbnail text null); create table category(id int auto_increment primary key, name text null, description varchar(255) null, thumbnail text null); create table resources(id int auto_increment primary key, name text null, description varchar(255) null, thumbnail text null, indoor tinyint(1) null, file text null, category_id int null, age_id int null, constraint resources_category_id_fk foreign key (category_id) references category (id), constraint resources_age_id_fk foreign key (age_id) references age (id));";
+    "drop table if exists resources; drop table if exists category; drop table if exists age; drop table if exists users; create table age(id int auto_increment primary key, age_range text null, description varchar(255) null, thumbnail text null); create table category(id int auto_increment primary key, name text null, description varchar(255) null, thumbnail text null); create table resources(id int auto_increment primary key, name text null, description varchar(255) null, thumbnail text null, indoor tinyint(1) null, file text null, category_id int null, age_id int null, constraint resources_category_id_fk foreign key (category_id) references category (id), constraint resources_age_id_fk foreign key (age_id) references age (id)); create table users (id int auto_increment primary key, fullname text null, email varchar(25) null, password varchar(255) null, username varchar(15) null, constraint User_email_uindex unique (email), constraint user_username_uindex unique (username))";
+    
+
+    
+
 
   con.query(sql, function(err, result) {
     if (err) throw err;

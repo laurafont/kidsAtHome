@@ -4,6 +4,8 @@ import ResourcePage from './components/ResourcePage';
 import CategoryPage from './components/CategoryPage';
 import InputPage from './components/InputPage';
 import Header from './components/Header';
+import Signup from './components/Signup';
+import Login from './components/Login';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Carousel from 'react-bootstrap/Carousel';
@@ -25,6 +27,8 @@ export default function App() {
         <Switch>
           <Route path="/categories" exact component={CategoryPage} />
           <Route path="/resources/:id" component={ResourcePage} />
+          <Route path="/signup" component={Signup} />
+          <Route path="/login" component={Login} />
           <Route path="/addResource" component={InputPage} />
           <Route path="/categories/:id" exact component={CategoryBox} />
           <Route path="/" exact component={Landing} />
