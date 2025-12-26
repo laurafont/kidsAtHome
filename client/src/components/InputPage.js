@@ -1,11 +1,5 @@
 import React, { Component } from 'react';
 import Modal from 'react-bootstrap/Modal';
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link
-  } from "react-router-dom";
 
 
 

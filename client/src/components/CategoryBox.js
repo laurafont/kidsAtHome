@@ -1,9 +1,5 @@
 import React, { Component } from 'react';
-import {
-    BrowserRouter as Router,
-    Link,
-    useParams
-  } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default class CategoryBox extends Component {
     constructor(props) {
@@ -54,7 +50,7 @@ export default class CategoryBox extends Component {
                       return (
                       <div key={index} className="col-md-3 mb-4 text-center">
                         <Link to={`/resources/${resource.id}`}>
-                            <img width="200px" src={resource.thumbnail} /></Link>
+                            <img width="200px" src={resource.thumbnail} alt={resource.name} /></Link>
                         <div className="card-title font-weight-bold mt-2">{resource.name}</div>
                       </div>
                       );

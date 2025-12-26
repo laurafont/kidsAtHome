@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
-import {
-    BrowserRouter as Router,
-    Link,
-  } from "react-router-dom";
+import { Link } from "react-router-dom";
 export default class ResourcePage extends Component {
     constructor(props) {
         super(props);
@@ -51,7 +48,7 @@ export default class ResourcePage extends Component {
                         {this.state.resource.map((resource, index) => {
                         return (
                             <div key={index} className="col-md-3 mb-4 text-center">
-                            <img width="600px" src={resource.thumbnail}/>
+                            <img width="600px" src={resource.thumbnail} alt={resource.name} />
                             </div>
                          );
                         })}

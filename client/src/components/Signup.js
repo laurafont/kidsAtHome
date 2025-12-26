@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 
-const emailRegex = RegExp(/^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/);
+const emailRegex = RegExp(/^[A-Za-z0-9_.-]+@[A-Za-z0-9_.-]+\.[A-Za-z]{2,4}$/);
 
 export default class Signup extends Component {
     constructor(props) {

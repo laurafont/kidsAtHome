@@ -13,9 +13,7 @@ import Carousel from 'react-bootstrap/Carousel';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link,
-  useParams
+  Route
 } from "react-router-dom";
 
 
